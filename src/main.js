@@ -22,6 +22,15 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach(function (to, from, next) {
+  store.commit('updateLoadingStatus', {isLoading: true})
+  next()
+})
+
+router.afterEach(function (to) {
+  store.commit('updateLoadingStatus', {isLoading: false})
+})
+
 sync(store, router)
 
 store.registerModule('vux', {
