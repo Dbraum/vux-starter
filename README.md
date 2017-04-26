@@ -1,6 +1,6 @@
-# vuxproject
+# vux starter
 
-> A Vue.js project
+这个脚手架主要拷贝vux demo的布局，如果
 
 ## Build Setup
 
