@@ -3,42 +3,36 @@
     <div v-transfer-dom>
       <loading v-model="isLoading"></loading>
     </div>
-    <div v-transfer-dom>
-      <actionsheet :menus="menus"
-                   v-model="showMenu"
-                   @on-click-menu="changeLocale"></actionsheet>
-    </div>
     <view-box ref="viewBox"
               body-padding-top="46px"
               body-padding-bottom="55px">
 
-      <x-header slot="header"
-                style="width:100%;position:absolute;left:0;top:0;z-index:100;"
-                :left-options="leftOptions"
-                :right-options="rightOptions"
-                :title="title"
-                :transition="headerTransition"
-                @on-click-more="onClickMore"></x-header>
+      <my-header :menus="menus"
+                 :leftOptions="leftOptions"
+                 :title="title"
+                 :rightOptions="rightOptions"
+                 :changeLocale="changeLocale"></my-header>
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
       </transition>
-      <my-tabbar :showTabbar="isShowTarbar" :componentName="componentName"></my-tabbar>
+      <my-tabbar :showTabbar="isShowTarbar"
+                 :componentName="componentName"></my-tabbar>
     </view-box>
 
   </div>
 </template>
 
 <script>
-import { ViewBox, XHeader, Loading, TransferDom, Actionsheet } from 'vux'
+import { ViewBox, Loading, TransferDom } from 'vux'
 import { mapState } from 'vuex'
-import MyTabbar from '@/components/layout/tabbar'
+import MyTabbar from '@/components/layout/Tabbar'
+import MyHeader from '@/components/layout/MyHeader'
 
 export default {
   name: 'app',
   data: function () {
     return {
       isShowTarbar: true,
-      showMenu: false,
       menus: {
         'language.noop': '<span class="menu-title">Language</span>',
         'zh-CN': '中文',
@@ -49,11 +43,8 @@ export default {
   directives: {
     TransferDom
   },
-  components: { ViewBox, XHeader, Loading, Actionsheet, MyTabbar },
+  components: { ViewBox, Loading, MyTabbar, MyHeader },
   methods: {
-    onClickMore() {
-      this.showMenu = true
-    },
     changeLocale(locale) {
       console.info(locale)
     },
@@ -85,9 +76,6 @@ export default {
         const parts = this.route.path.split('/')
         if (/component/.test(this.route.path) && parts[2]) return parts[2]
       }
-    },
-    headerTransition() {
-      return this.direction === 'forward' ? 'vux-header-fade-in-right' : 'vux-header-fade-in-left'
     },
     title() {
       if (this.route.path === '/') return 'Home'
