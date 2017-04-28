@@ -35,3 +35,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 脚手架跑起来的布局
 
 ![my_demo_home](./src/assets/my_demo_home.png)
+
+## 后续开发
+
+后续开发基于[vux](https://vux.li/#/)文档，根据需求填充页面或者修改布局即可。
