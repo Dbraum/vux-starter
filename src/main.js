@@ -33,30 +33,6 @@ router.afterEach(function (to) {
 
 sync(store, router)
 
-store.registerModule('vux', {
-  state: {
-    demoScrollTop: 0,
-    isLoading: false,
-    direction: 'forward'
-  },
-  mutations: {
-    updateDemoPosition (state, payload) {
-      state.demoScrollTop = payload.top
-    },
-    updateLoadingStatus (state, payload) {
-      state.isLoading = payload.isLoading
-    },
-    updateDirection (state, payload) {
-      state.direction = payload.direction
-    }
-  },
-  actions: {
-    updateDemoPosition ({commit}, top) {
-      commit({type: 'updateDemoPosition', top: top})
-    }
-  }
-})
-
 // 添加Fastclick移除移动端点击延迟
 FastClick.attach(document.body)
 

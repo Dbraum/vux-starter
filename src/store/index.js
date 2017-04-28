@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
+import vux from './modules/vux'
 
 Vue.use(Vuex)
 const state = {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
   actions,
   state,
   getters,
+  modules: {
+    vux
+  },
   strict: debug,
   mutations: {
     UPDATE_LOADING (state, status) {
