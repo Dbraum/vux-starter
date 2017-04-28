@@ -12,9 +12,11 @@
                  :title="title"
                  :rightOptions="rightOptions"
                  :changeLocale="changeLocale"></my-header>
+
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
       </transition>
+
       <my-tabbar :showTabbar="isShowTarbar"
                  :componentName="componentName"></my-tabbar>
     </view-box>
