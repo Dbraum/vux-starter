@@ -31,3 +31,7 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
+## 脚手架效果图
+脚手架跑起来的布局
+
+![my_demo_home](./src/assets/my_demo_home.png)
