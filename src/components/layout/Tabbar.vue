@@ -33,7 +33,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'myTabbar',
-  props: ['showTabbar'],
+  props: ['showTabbar', 'componentName'],
   data: function () {
     return {
       isTabbarDemo: false
@@ -47,18 +47,12 @@ export default {
     }),
     isDemo() {
       return /component|demo/.test(this.route.path)
-    },
-    componentName() {
-      if (this.route.path) {
-        const parts = this.route.path.split('/')
-        if (/component/.test(this.route.path) && parts[2]) return parts[2]
-      }
     }
   }
 }
 </script>
 
-<style lang="less">
+<style lang="css">
 .demo-icon-22 {
   font-family: 'vux-demo';
   font-size: 22px;

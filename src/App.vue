@@ -22,7 +22,7 @@
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
       </transition>
-      <my-tabbar :showTabbar="isShowTarbar"></my-tabbar>
+      <my-tabbar :showTabbar="isShowTarbar" :componentName="componentName"></my-tabbar>
     </view-box>
 
   </div>
