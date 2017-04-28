@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     ...mapState({
-      direction: state => state.vux.direction
+      direction: state => state.vux && state.vux.direction || ''
     }),
     headerTransition() {
       return this.direction === 'forward' ? 'vux-header-fade-in-right' : 'vux-header-fade-in-left'
